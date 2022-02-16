@@ -25,7 +25,7 @@ const mutations = {
 
 const actions = {
   initQr({dispatch, commit, state}) {
-    axios.get('/')
+    return axios.get('/qr')
       .then(response => {
         if (response.status === 200) {
           state.category = []
@@ -38,7 +38,7 @@ const actions = {
           for (let key in products) {
             commit("updateProductsList", products[key]);
           }
-
+          return
         }
       })
   },
